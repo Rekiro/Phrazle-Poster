@@ -1,5 +1,6 @@
 discord.py
-os
-time
-requests
-bs4
+python-dotenv
+python-os
+python-time
+python-requests
+python-bs4
