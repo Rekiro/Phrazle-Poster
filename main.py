@@ -1,6 +1,5 @@
 import discord
 import os
-from webserver import keep_alive
 import search_lexico
 # import time
 import discord.ext
@@ -55,7 +54,6 @@ async def on_message(message):
       await message.channel.send(no_result_message)
 
 
-keep_alive
 try:
   client.run(os.getenv('TOKEN'))
 except:
@@ -64,6 +62,7 @@ except:
 #to keep your bot from shutting down use https://uptimerobot.com then create a https:// monitor and put the link to the website that appewars when you run this repl in the monitor and it will keep your bot alive by pinging the flask server
 #enjoy!
 
+  
 #async def kick(ctx, member : discord.Member):
 #    try:
 #        await member.kick(reason=None)
