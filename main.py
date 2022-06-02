@@ -69,3 +69,5 @@ except:
 #        await ctx.send("kicked "+member.mention) #simple kick command to demonstrate how to get and use member mentions
 #    except:
 #        await ctx.send("bot does not have the kick members permission!")
+
+ # anything
