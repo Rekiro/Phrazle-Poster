@@ -1,6 +1,3 @@
-discord.py
-python-dotenv
-python-os
-python-time
-python-requests
-python-bs4
+beautifulsoup4==4.11.1
+discord.py==1.7.3
+requests==2.26.0
