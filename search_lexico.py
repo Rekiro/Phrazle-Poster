@@ -13,8 +13,9 @@ class Lexico:
     return keywords, phrase
 
   def search(self, keywords):
-    response = requests.get(self.url+keywords)
+    response = requests.get(self.url+keywords, allow_redirects = True)
     content = response.content
+    # print("content ",content) #testing the content of response obj
     soup = BeautifulSoup(content, 'html.parser')
     Meaning = soup.find(class_ = "ind one-click-content")
     Examples = soup.find_all("em")
@@ -27,3 +28,5 @@ class Lexico:
 #        if search_words in text:  
 #          send_link.add(link.get('href'))
 #    return send_link
+
+

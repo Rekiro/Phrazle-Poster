@@ -15,7 +15,7 @@ client = commands.Bot(command_prefix='!')  #put your own prefix here
 
 @client.event
 async def on_ready():
-  print("bot online")  #will print "bot online" in the console when the bot is online
+  print("I'm alive.")  #will print "bot online" in the console when the bot is online
 
 
 @client.command()
@@ -44,30 +44,32 @@ async def on_message(message):
 
 
     if Meaning != None:
-      await message.channel.send('-\n***__{}__***\n\n{}\n\nExamples:-'.format(phrase, Meaning.text)) 
-      for i in range(1,len(Examples)): # No_1_catalog_content
+      
+      Example_set = ''
+      for ex in range(1, 17):
         try:
-          await message.channel.send('> {}. *{}*'.format(i, Examples[i].text))
-        except IndexError:
+          i = '> ' + str(ex)
+          Example_set = Example_set + i + '. *' + Examples[ex].text+ '*\n'
+        except IndexError: 
           break
+      try:
+        await message.channel.send('-\n***__{}__***\n\n{}\n\nExamples:-\n{}'.format(phrase, Meaning.text, Example_set)) 
+      except Exception as x: 
+        await message.channel.send(x)
+      # for i in range(1,len(Examples)): # No_1_catalog_content
+      #   try:
+      #     await message.channel.send('> {}. *{}*'.format(i, Examples[i].text))
+      #   except IndexError:
+      #     break
     else:
       await message.channel.send(no_result_message)
+
 
 
 try:
   client.run(os.getenv('TOKEN'))
 except:
   os.system("kill 1")
-#get your bot token and create a key named `TOKEN` to the secrets panel then paste your bot token as the value.
-#to keep your bot from shutting down use https://uptimerobot.com then create a https:// monitor and put the link to the website that appewars when you run this repl in the monitor and it will keep your bot alive by pinging the flask server
-#enjoy!
+
 
   
-#async def kick(ctx, member : discord.Member):
-#    try:
-#        await member.kick(reason=None)
-#        await ctx.send("kicked "+member.mention) #simple kick command to demonstrate how to get and use member mentions
-#    except:
-#        await ctx.send("bot does not have the kick members permission!")
-
- # anything
