@@ -15,6 +15,7 @@ client = commands.Bot(command_prefix='!')  #put your own prefix here
 
 @client.event
 async def on_ready():
+  await client.change_presence(status = discord.Status.idle, activity = discord.Game('!meaning'))
   print("I'm alive.")  #will print "bot online" in the console when the bot is online
 
 
