@@ -1,5 +1,6 @@
 # Phrazle-Poster (Dicord Bot with Dictionary)
-A discord bot that posts daily Phrazle Phrases with their meanings, and a dictionary bot. 
+A discord bot that posts daily Phrazle answer phrases with their definitions, and a dictionary bot. 
+[Invite Prazle-Poster to your discord server!](https://discord.com/api/oauth2/authorize?client_id=981060431428866048&permissions=274877979712&scope=bot)
 <h4>Built With</h4>
  <ul><li>[Python](https://www.python.org)</li></ul>
 <h2>Description</h2> 
