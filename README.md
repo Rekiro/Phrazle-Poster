@@ -19,8 +19,7 @@ Command Prefix: `!`
 Use command `!meaning <word/phrase>`  to search for a word's or phrase's meaning withe examples.   
 
 ## Authors
-[Manas Singh Jyoti](https://github.com/Rekiro) 
-
+[Manas Singh Jyoti](https://github.com/Rekiro)  
 Supported by [May](https://github.com/Jenny-May)
 
 
