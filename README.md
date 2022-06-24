@@ -4,7 +4,7 @@ A discord bot that posts daily Phrazle answer phrases with their definitions, an
 ## Project Status
 Ongoing
 
-### Built With
+## Built With
 -[Python](https://www.python.org)  
 
 ## Description
