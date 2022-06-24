@@ -15,8 +15,7 @@ The bot owes its name to the word game Phrazle (a variant of the famous game by 
 Invite the bot to your discord server from the link given above.    
 
 
-Command Prefix: `!`
-
+Command Prefix: `!`  
 Use command `!meaning <word/phrase>`  to search for a word's or phrase's meaning withe examples.   
 
 ## Authors
