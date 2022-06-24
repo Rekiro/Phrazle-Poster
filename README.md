@@ -12,6 +12,6 @@ Invite the bot to your discord server from the link given above.
 Command Prefix: `!`
 Use command `!meaning <word/phrase>` to search for a word's or phrase's meaning withe examples. 
 <h2>Authors</h2>
-[Rekiro](https://github.com/Rekiro) with [May](https://github.com/Jenny-May)
+[Rekiro](https://github.com/Rekiro) with [May] (https://github.com/Jenny-May)
 <h2>Acknowledgements</h2>
  <ul><li>[Lexico](https://www.lexico.com)</li></ul>
