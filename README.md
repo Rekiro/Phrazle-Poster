@@ -9,7 +9,7 @@ A Discord bot that fetches the definitions and examples of words and prhases fro
 The bot owes its name to the word game Phrazle (a variant of the famous game by The New York Times, Wordle). In later versions, the bot will automatically post the daily Phrazle answers with their definitions and examples in a discord channel. This funtionality is currently under implementation and will soon be released. 
 <h2>Usage</h2> 
 Invite the bot to your discord server from the link given above.<br><br>
-Command Prefix: `!`<br>
+Command Prefix: <code>!</code><br>
 Use command <code>!meaning <word/phrase></code> to search for a word's or phrase's meaning withe examples. 
 <h2>Authors</h2>
 Manas @Rekiro with May @Jenny-May
