@@ -1,4 +1,3 @@
-<html>
 # Phrazle-Poster (Dicord Bot with Dictionary)
 A discord bot that posts daily Phrazle answer phrases with their definitions, and a dictionary bot.<br>
 [Invite Prazle-Poster to your discord server!](https://discord.com/api/oauth2/authorize?client_id=981060431428866048&permissions=274877979712&scope=bot)
@@ -16,4 +15,4 @@ Use command <code>!meaning <word/phrase></code>  to search for a word's or phras
 Manas @Rekiro with May @Jenny-May
 <h2>Acknowledgements</h2>
  <ul><li>[Lexico](https://www.lexico.com)</li></ul>
-</html>
+
