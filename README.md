@@ -1,3 +1,4 @@
+<html>
 # Phrazle-Poster (Dicord Bot with Dictionary)
 A discord bot that posts daily Phrazle answer phrases with their definitions, and a dictionary bot.<br>
 [Invite Prazle-Poster to your discord server!](https://discord.com/api/oauth2/authorize?client_id=981060431428866048&permissions=274877979712&scope=bot)
@@ -10,8 +11,9 @@ The bot owes its name to the word game Phrazle (a variant of the famous game by 
 <h2>Usage</h2> 
 Invite the bot to your discord server from the link given above.<br><br>
 Command Prefix: <code>!</code><br>
-Use command <code>!meaning <word/phrase></code> to search for a word's or phrase's meaning withe examples. 
+Use command <code>!meaning <word/phrase></code>  to search for a word's or phrase's meaning withe examples. 
 <h2>Authors</h2>
 Manas @Rekiro with May @Jenny-May
 <h2>Acknowledgements</h2>
  <ul><li>[Lexico](https://www.lexico.com)</li></ul>
+</html>
