@@ -16,12 +16,12 @@ bot = commands.Bot(command_prefix='!')  #put your own prefix here
 @bot.event
 async def on_ready():
   await bot.change_presence(status = discord.Status.idle, activity = discord.Game('!meaning'))
-  print("I'm alive.")  #will print "I'm alive" in the console when the bot is online
+  print("I'm alive.")  #will print "bot online" in the console when the bot is online
 
 
 @bot.command()
 async def hi(ctx):
-  await ctx.reply("Hello, please use `!meaning <word/phrase>` for definitions." +ctx.author.mention)  #simple command so that when you type "!ping" the bot will respond with "pong!"
+  await ctx.reply("Hello " +ctx.author.mention)  #simple command so that when you type "!ping" the bot will respond with "pong!"
 
 
 # instantiate Lexico class from search_lexico.py
@@ -31,7 +31,6 @@ dictionary = search_lexico.Lexico()
 no_result_message = '''Sorry, we can\'t find what you are searching for. But you can search on web here:\n--> https://www.oxfordlearnersdictionaries.com/definition/english/dictionary'''
 
 
-#@bot.listen('on_message')
 @bot.event
 async def on_message(message):
   if message.author == bot.user:
@@ -39,7 +38,7 @@ async def on_message(message):
     
   message_content = message.content.lower()  # lower case message
 
-  if f'!meaning' or '!m' in message_content:
+  if f'!meaning' in message_content:
 
     key_words, phrase = dictionary.key_words_search_words(message_content)
     Meaning, Examples = dictionary.search(key_words)
@@ -65,8 +64,7 @@ async def on_message(message):
       #     break
     else:
       await message.channel.send(no_result_message)
-
-  await bot.process_commands(message)
+  await bot.process_commands(message) 
 
 
 
