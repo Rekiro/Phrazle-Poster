@@ -31,7 +31,8 @@ dictionary = search_lexico.Lexico()
 no_result_message = '''Sorry, we can\'t find what you are searching for. But you can search on web here:\n--> https://www.oxfordlearnersdictionaries.com/definition/english/dictionary'''
 
 
-@bot.listen('on_message')
+#@bot.listen('on_message')
+@bot.event
 async def on_message(message):
   if message.author == bot.user:
     return
@@ -65,7 +66,7 @@ async def on_message(message):
     else:
       await message.channel.send(no_result_message)
 
-#  await bot.process_commands(message)
+  await bot.process_commands(message)
 
 
 
