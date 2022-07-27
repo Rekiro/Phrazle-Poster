@@ -1,6 +1,9 @@
 import discord
 import os
-import search_lexico
+import lexico
+import phrazle 
+import datetime
+import asyncio
 # import time
 import discord.ext
 #from discord.utils import get
@@ -10,7 +13,7 @@ from discord.ext import commands#, tasks
 
 #client = discord.Client()
 
-bot = commands.Bot(command_prefix='!')  #put your own prefix here
+bot = commands.Bot(command_prefix='!', help_command = help())  #put your own prefix here
 
 
 @bot.event
@@ -18,18 +21,22 @@ async def on_ready():
   await bot.change_presence(status = discord.Status.idle, activity = discord.Game('!meaning'))
   print("I'm alive.")  #will print "bot online" in the console when the bot is online
 
+@bot.command(aliases = ['p'])
+async def ping(ctx):
+  '''Pings the bot and checks for latency'''
+  await ctx.send(f'Pong! \n Latency: {round(bot.latency*1000)} milliseconds')
 
 @bot.command()
 async def hi(ctx):
+  '''Bot greets back the user.'''
   await ctx.reply("Hello " +ctx.author.mention)  #simple command so that when you type "!ping" the bot will respond with "pong!"
 
 
 # instantiate Lexico class from search_lexico.py
-dictionary = search_lexico.Lexico()
+dictionary = lexico.Dictionary()
 
 # no result message
 no_result_message = '''Sorry, we can\'t find what you are searching for. But you can search on web here:\n--> https://www.oxfordlearnersdictionaries.com/definition/english/dictionary'''
-
 
 @bot.event
 async def on_message(message):
@@ -38,35 +45,63 @@ async def on_message(message):
     
   message_content = message.content.lower()  # lower case message
 
-  if f'!meaning' in message_content:
+  if f'!define' in message_content:
+    '''!define [word] defines the word from a dictionary.'''
 
-    key_words, phrase = dictionary.key_words_search_words(message_content)
-    Meaning, Examples = dictionary.search(key_words)
+    definition, url = dictionary.define(message_content)
 
-
-    if Meaning != None:
+    if definition != None:
       
-      Example_set = ''
-      for ex in range(1, 17):
-        try:
-          i = '> ' + str(ex)
-          Example_set = Example_set + i + '. *' + Examples[ex].text+ '*\n'
-        except IndexError: 
-          break
       try:
-        await message.channel.send('-\n***__{}__***\n\n{}\n\nExamples:-\n{}'.format(phrase, Meaning.text, Example_set)) 
+        await message.channel.send(definition) 
       except Exception as x: 
         await message.channel.send(x)
-      # for i in range(1,len(Examples)): # No_1_catalog_content
-      #   try:
-      #     await message.channel.send('> {}. *{}*'.format(i, Examples[i].text))
-      #   except IndexError:
-      #     break
+      
     else:
       await message.channel.send(no_result_message)
-  await bot.process_commands(message) 
+      
+  await bot.process_commands(message) #makes the bot run other commands as well
 
 
+
+@bot.command(aliases = ['a','today', 'today\'s answer'])
+async def answer(ctx):
+  '''Posts the answer for today\'s Phrazle'''
+  answer = phrazle.Phrazle_Answer()
+  await ctx.send(answer.one_time())
+
+@bot.command(aliases = ['post answers daily','daily', 'post', 'daily answers'])
+async def post_answers_daily(ctx):
+  '''Posts the answer for Phrazle on a daily basis'''
+  while True: 
+    now = datetime.datetime.now()
+    then = now + datetime.timedelta(days =1)
+    #then = now.replace(hour = 11, minute =46)
+    wait_time = (then-now).total_seconds()
+    answer = phrazle.Phrazle_Answer()
+    await asyncio.sleep(wait_time)
+
+    await ctx.send(answer.daily_answers())
+    
+#     @bot.command(aliases = ['stop'])
+#     def stop_daily_posting(ctx): 
+#       break
+
+@bot.command(aliases = ['h'])
+async def help(ctx):
+  await ctx.send('''```Available Commands
+  
+answer             :  Posts the answer for today's Phrazle
+
+define <word>      :  Shows the meaning of the <word> with usage examples.
+
+help               :  Shows this message
+
+hi                 :  Bot greets back the user
+
+ping               :  Pings the bot and checks for latency
+
+post answers daily :  Posts the answer for Phrazle on a daily basis```''')
 
 try:
   bot.run(os.getenv('TOKEN'))
