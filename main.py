@@ -73,12 +73,14 @@ async def answer(ctx):
 @bot.command(aliases = ['post answers daily','daily', 'post', 'daily answers'])
 async def post_answers_daily(ctx):
   '''Posts the answer for Phrazle on a daily basis'''
+  answer = phrazle.Phrazle_answer()
+  await ctx.send(answer.daily_answers())
   while True: 
     now = datetime.datetime.now()
     then = now + datetime.timedelta(days =1)
     #then = now.replace(hour = 11, minute =46)
     wait_time = (then-now).total_seconds()
-    answer = phrazle.Phrazle_Answer()
+    # answer = phrazle.Phrazle_Answer()
     await asyncio.sleep(wait_time)
 
     await ctx.send(answer.daily_answers())
