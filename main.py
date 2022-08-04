@@ -73,7 +73,7 @@ async def answer(ctx):
 @bot.command(aliases = ['post answers daily','daily', 'post', 'daily answers'])
 async def post_answers_daily(ctx):
   '''Posts the answer for Phrazle on a daily basis'''
-  answer = phrazle.Phrazle_answer()
+  answer = phrazle.Phrazle_Answer()
   await ctx.send(answer.daily_answers())
   while True: 
     now = datetime.datetime.now()
