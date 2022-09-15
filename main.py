@@ -73,17 +73,31 @@ async def answer(ctx):
 @bot.command(aliases = ['post answers daily','daily', 'post', 'daily answers'])
 async def post_answers_daily(ctx):
   '''Posts the answer for Phrazle on a daily basis'''
-  answer = phrazle.Phrazle_Answer()
-  await ctx.send(answer.daily_answers())
+ 
+  #This two lines
+  #answer = phrazle.Phrazle_Answer()
+  #await ctx.send(answer.daily_answers())
+  
+  
+  
   while True: 
-    now = datetime.datetime.now()
-    then = now + datetime.timedelta(days =1)
+    #This two lines
+    # now = datetime.datetime.now()
+    # then = now + datetime.timedelta(days =1)
+    
     #then = now.replace(hour = 11, minute =46)
-    wait_time = (then-now).total_seconds()
+    #The following 1 line
+    #wait_time = (then-now).total_seconds()
     # answer = phrazle.Phrazle_Answer()
-    await asyncio.sleep(wait_time)
+    
+    await asyncio.sleep(1)
 
-    await ctx.send(answer.daily_answers())
+    await ctx.send('Those who forget the past are bound to repeat it.')
+    
+    #This line as well
+    #await ctx.send(answer.daily_answers())
+
+
     
 #     @bot.command(aliases = ['stop'])
 #     def stop_daily_posting(ctx): 
